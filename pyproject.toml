@@ -3,7 +3,7 @@ requires = ["hatchling>=1.25.0"]
 build-backend = "hatchling.build"
 
 [project]
-name = "agent-weave"
+name = "agent-weave-lib"
 version = "0.1.0"
 description = "Lightweight AI agent framework with tool use, ReAct reasoning, multi-agent teams, and memory."
 readme = "README.md"
