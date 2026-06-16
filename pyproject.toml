@@ -1,0 +1,74 @@
+[build-system]
+requires = ["hatchling>=1.25.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agent-weave"
+version = "0.1.0"
+description = "Lightweight AI agent framework with tool use, ReAct reasoning, multi-agent teams, and memory."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Soham Dahivalkar" }
+]
+keywords = ["ai", "agent", "llm", "react", "tool-use", "multi-agent", "framework"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "typing-extensions>=4.8; python_version < '3.11'"
+]
+
+[project.urls]
+Homepage = "https://github.com/sohammmmm10/agent-weave"
+Repository = "https://github.com/sohammmmm10/agent-weave"
+Issues = "https://github.com/sohammmmm10/agent-weave/issues"
+
+[project.optional-dependencies]
+openai = ["openai>=1.56.0"]
+anthropic = ["anthropic>=0.34.0"]
+bridge = ["ai-bridge-kit>=0.1.0"]
+all = [
+  "openai>=1.56.0",
+  "anthropic>=0.34.0",
+  "ai-bridge-kit>=0.1.0",
+]
+dev = [
+  "pytest>=8.0.0",
+  "pytest-cov>=5.0.0",
+  "pytest-asyncio>=0.24.0",
+  "build>=1.2.2",
+  "twine>=5.1.1",
+]
+
+[project.scripts]
+agent-weave = "agent_weave.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"
+asyncio_mode = "auto"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agent_weave"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/src",
+  "/tests",
+  "/examples",
+  "/README.md",
+  "/LICENSE",
+]
